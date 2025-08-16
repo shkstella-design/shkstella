@@ -150,11 +150,15 @@ with c1:
                 "</div>", unsafe_allow_html=True)
 with c2:
     delta_class = "up" if avg_yoy >= 0 else "down"
-    st.markdown("<div class='metric-card'>" \
-                "<div class='metric-title'>YTD 전년대비 증감률</div>" \
-                f"<div class='metric-value'>{avg_yoy:,.1f}% <span class='metric-delta {delta_class}'>" \
-                ("▲" if avg_yoy >= 0 else "▼") + "</span></div>" \
-                "</div>", unsafe_allow_html=True)
+    arrow = "▲" if avg_yoy >= 0 else "▼"
+    st.markdown(
+        f"<div class='metric-card'>"
+        "<div class='metric-title'>YTD 전년대비 증감률</div>"
+        f"<div class='metric-value'>{avg_yoy:,.1f}% "
+        f"<span class='metric-delta {delta_class}'>{arrow}</span></div>"
+        "</div>",
+        unsafe_allow_html=True,
+    )
 with c3:
     st.markdown("<div class='metric-card'>" \
                 "<div class='metric-title'>최고 매출 월</div>" \
